@@ -22,7 +22,7 @@ class MyStream(object):
 
 
 if __name__ == "__main__":
-    test_case = "1"
+    test_case = "3"
     test_input = open(os.path.join(os.path.abspath(__file__),"..","..","tests","input_tests", test_case+".input"))
     canonical_output = open(os.path.join(os.path.abspath(__file__),"..","..","tests","input_tests", test_case+".output"))
     work_output = MyStream()
