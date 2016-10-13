@@ -29,17 +29,9 @@ public class OrderQueue {
         }
     };
 
-    private int getBestPrice(){
-        if (orderType == 'B') {
-            return  priceToOrders.firstKey();
-        }else{
-            return priceToOrders.firstKey();
-        }
-    }
-
     public void matchOrder(Order inOrder){
         if (size != 0){
-            int bestPrice = getBestPrice();
+            int bestPrice = priceToOrders.firstKey();
             while (((inOrder.orderType == 'B' &&(inOrder.price >= bestPrice))||
                     ((inOrder.orderType == 'S')&&(inOrder.price <= bestPrice)))
                     && (size > 0) && (inOrder.publicSize > 0)){
@@ -50,7 +42,7 @@ public class OrderQueue {
                 if (bestDeals.notEmptyOrders == 0){
                     priceToOrders.remove(bestPrice);
                     if (size > 0) {
-                        bestPrice = getBestPrice();
+                        bestPrice = priceToOrders.firstKey();
                     }
                 }
             }
