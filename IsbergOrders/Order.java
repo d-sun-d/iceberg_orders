@@ -2,6 +2,9 @@ package IsbergOrders;
 
 import  java.text.DecimalFormat;
 import  java.text.DecimalFormatSymbols;
+
+import static java.lang.Integer.min;
+
 /**
  * Created by d-sun-d on 09.10.2016.
  */
@@ -12,7 +15,7 @@ public class Order {
     public int publicSize;
     private int defaultSize;
     public int leftPeakSize;
-    private int dealSize = 0;
+    public int dealSize = 0;
 
     public Order(
             char initOrderType,
@@ -97,6 +100,14 @@ public class Order {
                 inOrder.Deal(dealSize);
                 return  Boolean.TRUE;
             }
+        }
+    }
+
+    public void setToDefaultPublicSize(){
+        if ((defaultSize > publicSize) && (leftPeakSize > 0)){
+            int moveValue = min(defaultSize - publicSize, leftPeakSize);
+            publicSize += moveValue;
+            leftPeakSize -= moveValue;
         }
     }
 }

@@ -20,5 +20,8 @@ public class Main {
         //stock.processNewOrder(buyOrder3);
         //Order buyOrder4 = new Order('B', 1004, 28502, 7500, 7500);
         //stock.processNewOrder(buyOrder4);
+
+
+        //myQueue.matchOrder(sellOrder);
     }
 }

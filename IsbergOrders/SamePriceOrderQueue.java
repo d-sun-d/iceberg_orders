@@ -68,6 +68,7 @@ public class SamePriceOrderQueue {
             }
             while (currentId != startId);
         }
+        inOrder.dealSize = 0;
     }
 
 }

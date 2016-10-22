@@ -22,6 +22,7 @@ public class OrderQueue {
 
     public void addOrder(Order order){
         size += 1;
+        order.setToDefaultPublicSize();
         if (priceToOrders.containsKey(order.price)){
             priceToOrders.get(order.price).addOrder(order);
         } else {
